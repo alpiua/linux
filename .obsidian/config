@@ -1,0 +1,105 @@
+{
+  "theme": "obsidian",
+  "pluginEnabledStatus": {
+    "File explorer": true,
+    "Search": true,
+    "Quick switcher": true,
+    "Graph view": true,
+    "Backlinks": true,
+    "Command palette": true,
+    "Markdown format importer": true,
+    "Word count": true
+  },
+  "workspaceLayout": {
+    "id": "07b00262b7bbf59a",
+    "type": "split",
+    "children": [
+      {
+        "id": "3488275e4bcfd0cf",
+        "type": "leaf",
+        "active": true,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "server/sftp.md",
+            "mode": "preview"
+          }
+        },
+        "group": "4ca2ae4b8c41ccf4"
+      },
+      {
+        "id": "822bf0dc8f1aabec",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "server/sftp.md",
+            "mode": "source"
+          }
+        },
+        "group": "4ca2ae4b8c41ccf4"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "leftSidedock": {
+    "id": "399d2af551aa6307",
+    "type": "split",
+    "children": [
+      {
+        "id": "1b4b7798cf75c2df",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3e60cc0e396555ab",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "303729b0bab12f9e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "rightSidedock": {
+    "id": "b3d99bbd62e27b17",
+    "type": "split",
+    "children": [
+      {
+        "id": "38e5039f436bfb88",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "498a19f2d414b1f2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "lastOpenFiles": [
+    "server/sftp.md",
+    "server/Centos7.md",
+    "server/Centos 8.md",
+    "Markdown Cheatsheet.md",
+    "core/linux-in-ram.md"
+  ]
+}

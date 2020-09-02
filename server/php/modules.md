@@ -1,0 +1,29 @@
+modules
+==============
+### prestashop setup
+    php.x86_64
+    php-bcmath.x86_64
+    php-cli.x86_64
+    php-common.x86_64
+    php-devel.x86_64
+    php-fedora-autoloader.noarch
+    php-fpm.x86_64
+    php-gd.x86_64
+    php-intl.x86_64
+    php-json.x86_64
+    php-mbstring.x86_64
+    php-mcrypt.x86_64
+    php-mysqlnd.x86_64
+    php-odbc.x86_64
+    php-opcache.x86_64
+    php-pdo.x86_64
+    php-pear.noarch
+    php-pecl-apcu.x86_64
+    php-pecl-zip.x86_64
+    php-php-gettext.noarch
+    php-process.x86_64
+    php-recode.x86_64
+    php-tcpdf.noarch
+    php-tcpdf-dejavu-sans-fonts.noarch
+    php-tidy.x86_64
+    php-xml.x86_64
