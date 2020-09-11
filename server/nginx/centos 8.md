@@ -49,5 +49,4 @@ load_module modules/ngx_http_brotli_filter_module.so;
 load_module modules/ngx_http_brotli_static_module.so;
 ```
 
-
 dnf remove -y pcre-devel zlib-devel openssl-devel && dnf groupremove 'Development Tools'
