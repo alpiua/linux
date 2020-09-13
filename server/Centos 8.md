@@ -1,7 +1,7 @@
 Centos 8
 ========
 
-### hostname
+### hostnamehostname
 
 1. hostnamectl set-hostname <name>
 
