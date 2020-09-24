@@ -9,3 +9,5 @@ https://wiki.archlinux.org/index.php/Acpid
 
 https://www.valhalla.fr/2018/12/02/manjaro-thinkpad-checklist/
 
+https://gist.github.com/ferrao/536a43896ff6aa38ba54f2c1b86c9506
+
