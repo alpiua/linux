@@ -1,0 +1,4 @@
+hibernate
+========================
+
+https://01.org/blogs/rzhang/2015/best-practice-debug-linux-suspend/hibernate-issues
