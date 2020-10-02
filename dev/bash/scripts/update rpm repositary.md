@@ -1,6 +1,6 @@
 update rpm repositary
 ========================
-```
+```bash
 #!/bin/bash
 BASEDIR=/home/repo
 BASEREPO=/repo/suse
@@ -27,4 +27,4 @@ then
 else
         echo "Nothing to add. Check package name"
 fi
-``
+```
