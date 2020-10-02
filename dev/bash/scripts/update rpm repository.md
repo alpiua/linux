@@ -1,4 +1,4 @@
-update rpm repositary
+update rpm repository
 ========================
 ```bash
 #!/bin/bash
