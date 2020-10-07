@@ -1,4 +1,5 @@
 zypper
 ========================
 
-zypper se -s \<packet>
+#### поиск всех версий пакетов в кэше
+zypper se -s \<packet>  
