@@ -15,7 +15,8 @@ will display each line after the variables and meta-characters have been substit
 
 A convenient way to turn these variables on the first line of the script using the the "-x" option (echo)
 
-  `  #!/bin/csh -x`
+    #!/bin/csh -x
+
 or the "-v" option (verbose):
 
     #!/bin/csh -v
