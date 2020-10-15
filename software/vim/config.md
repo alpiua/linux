@@ -18,7 +18,7 @@ set [no]expandtab         заменять ли табуляцию на соот
 
 :ab mail mail@provider.org	Определить mail как сокращение от mail@provider.org
 
-:e ++ff=unix    Показать переност
+:e ++ff=unix    Показать переносы строки ^M
 
 Отступы
 
