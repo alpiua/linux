@@ -10,4 +10,8 @@ mmcli -L
 > /org/freedesktop/ModemManager1/Modem/0		[Lenovo] H5321 gw
 
 #### подробные сведения
-mmcli -m 0
+> mmcli -m 0
+
+
+ModemManager --debug
+
