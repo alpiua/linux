@@ -15,3 +15,4 @@ mmcli -L
 
 ModemManager --debug
 
+mmcli -b 
