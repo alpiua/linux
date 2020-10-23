@@ -9,4 +9,6 @@ openssl aes-256-cbc -d -in message.enc -out plain-text.txt    //decription
 https://jamielinux.com/docs/openssl-certificate-authority/index.html
 
 
-киев 
+киев НП 18
+Голуб Наталья
+0674440318
