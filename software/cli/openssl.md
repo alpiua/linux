@@ -7,3 +7,6 @@ openssl aes-256-cbc -d -in message.enc -out plain-text.txt    //decription
 
 ### CA
 https://jamielinux.com/docs/openssl-certificate-authority/index.html
+
+
+киев 
