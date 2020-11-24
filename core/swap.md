@@ -2,7 +2,7 @@ swap
 ====
 
 ```
-dd if=/dev/zero of=/swapfile bs=1M count=4096 && \
+dd if=/dev/zero of=/swapfile bs=1M count=2048 && \
 chmod 600 /swapfile && \
 mkswap /swapfile && \
 swapon /swapfile && \
