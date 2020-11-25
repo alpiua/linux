@@ -46,7 +46,7 @@ OR
 #### nginx config
 
 ```
-set $pma /ph
+set $pma /pma3388/
 
 location /$pma/ {
 
