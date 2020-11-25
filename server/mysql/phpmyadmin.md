@@ -102,6 +102,9 @@ OR
     rm phpMyAdmin-*.tar.g
     sudo mv phpMyAdmin-*/  /usr/share/phpMyAdmin
     
+#### create user
+useradd -r pma    
+    
 #### create directories
 
     sudo mkdir -p /var/lib/phpMyadmin/{tmp,upload,download,session,wsdlcache}
