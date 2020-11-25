@@ -108,9 +108,7 @@ OR
     sudo vim /usr/share/phpMyAdmin/config.inc.php
 
  Set a secret passphrase – Needs to be 32 chars long
-
  $cfg['blowfish_secret'] = 'H2OxcGXxflSd8JwrwVlh6KW6s2rER63i';
-
  $cfg['TempDir'] = '/var/lib/phpMyAdmin/tmp';
     
 #### create system user
