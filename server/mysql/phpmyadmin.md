@@ -102,7 +102,7 @@ OR
     sudo mv phpMyAdmin-*/  /usr/share/phpMyAdmin
 
 #### create system user
-useradd -r pma    
+useradd -r pma
     
 #### create config & adjust variables
 
