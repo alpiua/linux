@@ -105,13 +105,13 @@ OR
 #### create directories
 
     sudo mkdir -p /var/lib/phpMyadmin/tmp
-    sudo chown -R pma:pma /var/lib/phpmyadmin
-    sudo mkdir /etc/phpmyadmin/
+    sudo chown -R pma:pma /var/lib/phpMyAdmin
+    sudo mkdir /etc/phpMyAdmin/
 
 #### create config & adjust variables
 
-    sudo cp /usr/share/phpmyadmin/config.sample.inc.php  /usr/share/phpmyadmin/config.inc.php
-    sudo vim /usr/share/phpmyadmin/config.inc.php
+    sudo cp /usr/share/phpMyAdmin/config.sample.inc.php  /usr/share/phpmyadmin/config.inc.php
+    sudo vim /usr/share/phpMyAdmin/config.inc.php
 
  Set a secret passphrase – Needs to be 32 chars long
 
