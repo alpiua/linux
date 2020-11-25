@@ -104,7 +104,7 @@ OR
     
 #### create directories
 
-    sudo mkdir -p /var/lib/phpMyadmin/tmp
+    sudo mkdir -p /var/lib/phpMyadmin/{tmp,upload,}
     sudo chown -R pma:pma /var/lib/phpMyAdmin
     sudo mkdir /etc/phpMyAdmin/
 
