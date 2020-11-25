@@ -100,6 +100,9 @@ OR
 
     rm phpMyAdmin-*.tar.g
     sudo mv phpMyAdmin-*/  /usr/share/phpMyAdmin
+
+#### create system user
+useradd -r pma    
     
 #### create config & adjust variables
 
@@ -110,8 +113,6 @@ OR
  $cfg['blowfish_secret'] = 'H2OxcGXxflSd8JwrwVlh6KW6s2rER63i';
  $cfg['TempDir'] = '/var/lib/phpMyAdmin/tmp';
     
-#### create system user
-useradd -r pma    
     
 #### create directories
 
