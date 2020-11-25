@@ -60,3 +60,45 @@ skip-innodb_doublewrite
 #skip-log-bin
 #sync_binlog = 0
 ```
+
+### less then 1Gb RAM
+```
+[mysqld]
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+log-error=/var/log/mysql/mysqld.log
+pid-file=/run/mysqld/mysqld.pid
+
+tmpdir                      = /dev/shm
+
+# SAFETY #
+max_allowed_packet             = 16M      # Проверить этот параметр
+max_connect_errors             = 100
+max_connections                = 100
+
+# CACHES AND LIMITS #
+tmp_table_size                 = 512M
+max_heap_table_size            = 512M    # Should be greater or equal to tmp_table_size
+thread_cache_size              = 80
+flush_time                     = 86400
+interactive_timeout            = 1200
+wait_timeout                   = 1800
+
+# INNODB #
+innodb_buffer_pool_size        = 128M
+innodb_flush_method            = O_DIRECT
+innodb_flush_log_at_trx_commit = 0
+innodb_file_per_table          = 1
+innodb_lock_wait_timeout       = 120
+innodb_log_file_size           = 32M
+innodb_log_buffer_size         = 1M
+innodb_stats_on_metadata       = 0
+
+innodb_thread_concurrency      = 16      # 
+innodb_adaptive_max_sleep_delay = 50000
+
+disable_log-bin
+skip-name-resolve
+skip-innodb_doublewrite
+
+```
