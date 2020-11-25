@@ -104,8 +104,8 @@ OR
     
 #### create directories
 
-    sudo mkdir -p /var/lib/phpmyadmin/tmp
-    sudo chown -R nginx:nginx /var/lib/phpmyadmin
+    sudo mkdir -p /var/lib/phpMyadmin/tmp
+    sudo chown -R pma:pma /var/lib/phpmyadmin
     sudo mkdir /etc/phpmyadmin/
 
 #### create config & adjust variables
