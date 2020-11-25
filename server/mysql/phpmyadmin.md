@@ -106,7 +106,8 @@ useradd -r pma
     
 #### create config & adjust variables
 
-    sudo cp /usr/share/phpMyAdmin/config.sample.inc.php  /usr/share/phpmyadmin/config.inc.php
+    sudo cp /usr/share/phpMyAdmin/config.sample.inc.php  /usr/share/phpMyAdmin/config.inc.php
+    sudo chown -R pma:pma /usr/share/phpMyAdmin/
     sudo vim /usr/share/phpMyAdmin/config.inc.php
 
  Set a secret passphrase – Needs to be 32 chars long
