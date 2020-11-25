@@ -94,7 +94,6 @@ VER="$(echo $DATA | cut -d ' ' -f 1)"
 
     tar xvf phpMyAdmin-${VER}-english.tar.gz
 OR
-
     tar xvf phpMyAdmin-${VER}-all-languages.tar.gz
 
 #### move to /usr/share/phpmyadmin
