@@ -46,6 +46,8 @@ OR
 #### nginx config
 
 ```
+set $pma /ph
+
 location /$pma/ {
 
       #  auth_basic           "closed site";
@@ -53,7 +55,7 @@ location /$pma/ {
 
      alias /usr/share/phpMyAdmin/;
 
-     location ~* ^/myadminalias/(.+\.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {
+     location ~* ^/$pma/(.+\.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {
         alias /usr/share/phpMyAdmin/$1;
         }
      
