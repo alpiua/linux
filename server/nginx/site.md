@@ -66,3 +66,5 @@ server {
     error_log  /home/site/logs/site.error.log;
 }
 ```
+
+
