@@ -100,7 +100,7 @@ OR
 #### move to /usr/share/phpmyadmin
 
     rm phpMyAdmin-*.tar.g
-    sudo mv phpMyAdmin-*/ /usr/share/phpmyadmin
+    sudo mv phpMyAdmin-*/  /usr/share/phpMyAdmin
     
 #### create directories
 
