@@ -41,7 +41,7 @@ OR
 
  $cfg['blowfish_secret'] = 'H2OxcGXxflSd8JwrwVlh6KW6s2rER63i';
 
- $cfg['TempDir'] = '/var/lib/phpmyadmin/tmp';
+ $cfg['TempDir'] = '/var/lib/phpMyAdmin/tmp';
 
 #### nginx config
 
