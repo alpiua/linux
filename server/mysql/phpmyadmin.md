@@ -102,7 +102,7 @@ OR
     rm phpMyAdmin-*.tar.g
     sudo mv phpMyAdmin-*/  /usr/share/phpMyAdmin
     
-#### create user
+#### create system user
 useradd -r pma    
     
 #### create directories
