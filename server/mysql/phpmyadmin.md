@@ -102,15 +102,6 @@ OR
     rm phpMyAdmin-*.tar.g
     sudo mv phpMyAdmin-*/  /usr/share/phpMyAdmin
     
-#### create system user
-useradd -r pma    
-    
-#### create directories
-
-    sudo mkdir -p /var/lib/phpMyadmin/{tmp,upload,download,session,wsdlcache}
-    sudo chown -R pma:pma /var/lib/phpMyAdmin
-    sudo mkdir /etc/phpMyAdmin/
-
 #### create config & adjust variables
 
     sudo cp /usr/share/phpMyAdmin/config.sample.inc.php  /usr/share/phpmyadmin/config.inc.php
@@ -121,3 +112,13 @@ useradd -r pma
  $cfg['blowfish_secret'] = 'H2OxcGXxflSd8JwrwVlh6KW6s2rER63i';
 
  $cfg['TempDir'] = '/var/lib/phpMyAdmin/tmp';
+    
+#### create system user
+useradd -r pma    
+    
+#### create directories
+
+    sudo mkdir -p /var/lib/phpMyadmin/{tmp,upload,download,session,wsdlcache}
+    sudo chown -R pma:pma /var/lib/phpMyAdmin
+    sudo mkdir /etc/phpMyAdmin/
+
