@@ -171,7 +171,7 @@ mkdir $BACKUP_DIR/$DATE
 #for i in `mysql -h $MYSQL_SERVER -u $MYSQL_USER -p$MYSQL_PASSWORD -e'show databases;' | grep -v information_schema | grep -v Database`;
 #    do mysqldump -h $MYSQL_SERVER -u $MYSQL_USER -p$MYSQL_PASSWORD $i > $BACKUP_DIR/$DATE/$i.sql;
 #done
-mysqldump -h $MYSQL_SERVER -u $MYSQL_USER -p$MYSQL_PASSWORD main > $BACKUP_DIR/$DATE/photodom.sql
+mysqldump -h $MYSQL_SERVER -u $MYSQL_USER -p$MYSQL_PASSWORD main > $BACKUP_DIR/$DATE/$PROJECT.sql
 
 logger "Создаем архив mysql $BACKUP_DIR/$DATE-mysql-$PROJECT.tar.gz"
 tar -czf $BACKUP_DIR/$DATE-mysql-$PROJECT.tar.gz $BACKUP_DIR/$DATE
@@ -195,7 +195,6 @@ uploadFile $BACKUP_DIR/$DATE-files-$PROJECT.tar.gz
 
 # Удаляем старые бекапы с Яндекс.Диска (если MAX_BACKUPS > 0)
 if [ $MAX_BACKUPS -gt 0 ];then remove_old_backups; fi
-
 
 
 logger "Завершение скрипта бекапа"
