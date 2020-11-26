@@ -97,4 +97,74 @@ function getUploadUrl()
         echo $output
     fi
 }
+
+function uploadFile
+{
+    local json_out
+    local uploadUrl
+    local json_error
+    uploadUrl=$(getUploadUrl)
+    if [[ $uploadUrl != '' ]];
+    then
+    echo $UploadUrl
+        json_out=`curl -s -T $1 -H "Authorization: OAuth $TOKEN" $uploadUrl`
+        json_error=$(checkError "$json_out")
+    if [[ $json_error != '' ]];
+    then
+        logger "$PROJECT - Yandex.Disk error: $json_error"
+        mailing "$PROJECT - Yandex.Disk backup error" "ERROR copy file $FILENAME. Yandex.Disk error: $json_error"
+
+
+    else
+        logger "$PROJECT - Copying file to Yandex.Disk success"
+        mailing "$PROJECT - Yandex.Disk backup success" "SUCCESS copy file $FILENAME"
+
+    fi
+    else
+        echo 'Some errors occured. Check log file for detail'
+    fi
+}
+
+function backups_list() {
+    # Ищем в директории приложения все файлы бекапов и выводим их названия:
+    curl -s -H "Authorization: OAuth $TOKEN" "https://cloud-api.yandex.net:443/v1/disk/resources?path=app:/$FOLDER/&sort=created&limit=100" | tr "{},[]" "\n" | grep "name\":[[:graph:]]*.tar.gz" | cut -d: -f 2 | tr -d '"'
+}
+
+function backups_count() {
+    local bkps=$(backups_list | wc -l)
+    # Если мы бекапим и файлы, и БД, то на 1 бекап у нас приходится 2 файла. Поэтому количество бекапов = количество файлов / 2:
+    expr $bkps / 2
+}
+
+function remove_old_backups() {
+    bkps=$(backups_count)
+    old_bkps=$((bkps - MAX_BACKUPS))
+    if [ "$old_bkps" -gt "0" ];then
+        logger "Удаляем старые бекапы с Яндекс.Диска"
+        # Цикл удаления старых бекапов:
+        # Выполняем удаление первого в списке файла 2*old_bkps раз
+        for i in `eval echo {1..$((old_bkps * 2))}`; do
+            curl -X DELETE -s -H "Authorization: OAuth $TOKEN" "https://cloud-api.yandex.net:443/v1/disk/resources?path=app:/$FOLDER/$(backups_list | awk '(NR == 1)')&permanently=true"
+        done
+    fi
+}
+
+logger "--- $PROJECT START BACKUP $DATE ---"
+logger "Удаляем архивы с диска"
+find $BACKUP_DIR -type f -name "*.gz" -exec rm '{}' \;
+
+if [ $WEEK_DAY -eq 1 ]
+then
+  FOLDER="Week"
+  echo "sunday"
+   logger "Week backup!"
+   MAX_BACKUPS=$MAX_WEEKS_BACKUPS
+else
+  FOLDER="Day"
+  echo "not Sunday"
+  logger "Common day backup"
+  MAX_BACKUPS=$MAX_DAY_BACKUPS
+fi
+
 ```
+
