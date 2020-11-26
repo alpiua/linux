@@ -1,6 +1,6 @@
 backup-yandex
 =============
-``````
+```
 #!/bin/bash
 MYSQL_SERVER='localhost'
 
@@ -8,15 +8,15 @@ MYSQL_SERVER='localhost'
 MYSQL_USER='photodom'
 
 # Пароль пользователя базы данных (Пароль от рута сервера и от рута mysql разные не путайте)
-MYSQL_PASSWORD='Sd2kSanT1Wn5j8jz'
+MYSQL_PASSWORD='pas'
 
 # # # # # # # # # # ОБЩИЕ НАСТРОЙКИ # # # # # # # # # #
     
 # Директория для временного хранения бекапов, которые удаляются после отправки на Яндекс.Диск
-BACKUP_DIR='/home/photodom/backup'
+BACKUP_DIR='/home/site/backup'
 
 # Название проекта, используется в логах и именах архивов
-PROJECT='photodom.kz'
+PROJECT='site.com'
 
 # Максимальное количество хранимых на Яндекс.Диске бекапов (0 - хранить все бекапы):
 
@@ -93,3 +93,4 @@ function getUploadUrl()
         echo $output
     fi
 }
+```
