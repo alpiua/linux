@@ -214,7 +214,7 @@ host smtp.mail.ru
 port 587
 protocol smtp
 auth on
-from info@photodom.kz
-user info@photodom.kz
-password Tflash15
+from info@site.com
+user info@site.com
+password PASSWRD
 ```
