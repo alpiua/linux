@@ -3,7 +3,7 @@ backup-yandex
 ```
 
 # Название проекта, используется в логах и именах архивов.
-# Имя сайта без коменов
+# Имя сайта
 PROJECT='site'
 
 #!/bin/bash
@@ -18,7 +18,7 @@ MYSQL_PASSWORD='pass'
 # # # # # # # # # # ОБЩИЕ НАСТРОЙКИ # # # # # # # # # #
     
 # Директория для временного хранения бекапов, которые удаляются после отправки на Яндекс.Диск
-BACKUP_DIR='/home/site/backup'
+BACKUP_DIR='/home/$PROJECT/backup'
 
 # Максимальное количество хранимых на Яндекс.Диске бекапов (0 - хранить все бекапы):
 
@@ -30,7 +30,7 @@ DATE=`date '+%Y-%m-%d'`
 WEEK_DAY=`date '+%w'`
     
 # Директории для архивации (указываются через пробел), которые будут помещены в единый архив и отправлены на Яндекс.Диск
-DIRS='/home/site/www /etc/{nginx,my.cnf.d,php-fpm.d} /home/photodom/config'
+DIRS='/home/$PROJECT/www /etc/{nginx,my.cnf.d,php-fpm.d} /home/$PROJECT/config'
 
 # Yandex.Disk токен (как получить - см. на neblog.info)
 TOKEN='AQAAAAAxkMylAAV9e_XJrkPBc0cegm1h4GK_buw'
