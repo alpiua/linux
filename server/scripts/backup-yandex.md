@@ -1,6 +1,6 @@
 backup-yandex
 =============
-```
+```bash
 # # # # # # # # # # ОБЩИЕ НАСТРОЙКИ # # # # # # # # # #
 
 # Название проекта, используется в логах и именах архивов.
@@ -35,7 +35,7 @@ MSMTP=/home/$PROJECT/config/.msmtprc
 DIRS='/home/$PROJECT/www /etc/{nginx,my.cnf.d,php-fpm.d} /home/$PROJECT/config'
 
 # Yandex.Disk токен (как получить - см. на neblog.info)
-TOKEN='AQAAAAAxkMylAAV9e_XJrkPBc0cegm1h4GK_buw'
+TOKEN='token'
 
 # Имя лог-файла, хранится в директории, указанной в $BACKUP_DIR
 LOGFILE='backup.log'
@@ -166,5 +166,38 @@ else
   MAX_BACKUPS=$MAX_DAY_BACKUPS
 fi
 
+logger "Выгружаем дампы баз"
+mkdir $BACKUP_DIR/$DATE
+#for i in `mysql -h $MYSQL_SERVER -u $MYSQL_USER -p$MYSQL_PASSWORD -e'show databases;' | grep -v information_schema | grep -v Database`;
+#    do mysqldump -h $MYSQL_SERVER -u $MYSQL_USER -p$MYSQL_PASSWORD $i > $BACKUP_DIR/$DATE/$i.sql;
+#done
+mysqldump -h $MYSQL_SERVER -u $MYSQL_USER -p$MYSQL_PASSWORD main > $BACKUP_DIR/$DATE/photodom.sql
+
+logger "Создаем архив mysql $BACKUP_DIR/$DATE-mysql-$PROJECT.tar.gz"
+tar -czf $BACKUP_DIR/$DATE-mysql-$PROJECT.tar.gz $BACKUP_DIR/$DATE
+rm -rf $BACKUP_DIR/$DATE
+
+logger "Создаем архив каталогов $BACKUP_DIR/$DATE-files-$PROJECT.tar.gz"
+tar -czf $BACKUP_DIR/$DATE-files-$PROJECT.tar.gz $DIRS
+
+FILENAME=$DATE-mysql-$PROJECT.tar.gz
+logger "Выгружаем на Яндекс.Диск архив mysql $BACKUP_DIR/$DATE-mysql-$PROJECT.tar.gz"
+backupName=$DATE-mysql-$PROJECT.tar.gz
+uploadFile $BACKUP_DIR/$DATE-mysql-$PROJECT.tar.gz
+
+FILENAME=$DATE-files-$PROJECT.tar.gz
+logger "Выгружаем на Яндекс.Диск архив с файлами $BACKUP_DIR/$DATE-files-$PROJECT.tar.gz"
+backupName=$DATE-files-$PROJECT.tar.gz
+uploadFile $BACKUP_DIR/$DATE-files-$PROJECT.tar.gz
+
+#logger "Удаляем архивы с диска"
+#find $BACKUP_DIR -type f -name "*.gz" -exec rm '{}' \;
+
+# Удаляем старые бекапы с Яндекс.Диска (если MAX_BACKUPS > 0)
+if [ $MAX_BACKUPS -gt 0 ];then remove_old_backups; fi
+
+
+
+logger "Завершение скрипта бекапа"
 ```
 
