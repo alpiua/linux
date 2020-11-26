@@ -5,10 +5,10 @@ backup-yandex
 MYSQL_SERVER='localhost'
 
 # Юзер, под которым будем делать бекап доступных баз, руту mysql обычно доступны все БД, отдельному пользователю обычно доступна БД конкретного проекта
-MYSQL_USER='photodom'
+MYSQL_USER='user'
 
 # Пароль пользователя базы данных (Пароль от рута сервера и от рута mysql разные не путайте)
-MYSQL_PASSWORD='pas'
+MYSQL_PASSWORD='pass'
 
 # # # # # # # # # # ОБЩИЕ НАСТРОЙКИ # # # # # # # # # #
     
@@ -28,7 +28,7 @@ DATE=`date '+%Y-%m-%d'`
 WEEK_DAY=`date '+%w'`
     
 # Директории для архивации (указываются через пробел), которые будут помещены в единый архив и отправлены на Яндекс.Диск
-DIRS='/home/photodom/www /home/photodom/well.kz /etc/{nginx,my.cnf.d,php-fpm.d} /home/photodom/config'
+DIRS='/home/site/www /etc/{nginx,my.cnf.d,php-fpm.d} /home/photodom/config'
 
 # Yandex.Disk токен (как получить - см. на neblog.info)
 TOKEN='AQAAAAAxkMylAAV9e_XJrkPBc0cegm1h4GK_buw'
