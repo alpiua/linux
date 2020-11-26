@@ -28,7 +28,8 @@ MAX_WEEKS_BACKUPS='4'
 DATE=`date '+%Y-%m-%d'`
 WEEK_DAY=`date '+%w'`
 
-
+# Конфиг для отправки почты
+MSMTP=/home/photodom/config/.msmtprc
     
 # Директории для архивации (указываются через пробел), которые будут помещены в единый архив и отправлены на Яндекс.Диск
 DIRS='/home/$PROJECT/www /etc/{nginx,my.cnf.d,php-fpm.d} /home/$PROJECT/config'
