@@ -29,7 +29,7 @@ DATE=`date '+%Y-%m-%d'`
 WEEK_DAY=`date '+%w'`
 
 # Конфиг для отправки почты
-MSMTP=/home/photodom/config/.msmtprc
+MSMTP=/home/$PROJECT/config/.msmtprc
     
 # Директории для архивации (указываются через пробел), которые будут помещены в единый архив и отправлены на Яндекс.Диск
 DIRS='/home/$PROJECT/www /etc/{nginx,my.cnf.d,php-fpm.d} /home/$PROJECT/config'
@@ -60,7 +60,7 @@ function mailing()
                 echo -e "Subject: "Backup error"\nFrom: "info@photodom.kz"\nTo: "info@photodom.kz"\nReply-to: "info@photodom.kz"\nContent-Type: text/plain; charset=\"UTF-8\"\n\n"$1 $2"" | msmtp  -C /home/photodom/config/.msmtprc --debug info@photodom.kz
             fi
         else
-                echo -e "Subject: "Backup info"\nFrom: "info@photodom.kz"\nTo: "info@photodom.kz"\nReply-to: "info@photodom.kz"\nContent-Type: text/plain; charset=\"UTF-8\"\n\n"$1 $2"" | msmtp  -C /home/photodom/config/.msmtprc --debug info@photodom.kz
+                echo -e "Subject: "Backup info"\nFrom: "info@photodom.kz"\nTo: "info@photodom.kz"\nReply-to: "info@photodom.kz"\nContent-Type: text/plain; charset=\"UTF-8\"\n\n"$1 $2"" | msmtp  -C $MSMTP --debug info@photodom.kz
         fi
     fi
 }
