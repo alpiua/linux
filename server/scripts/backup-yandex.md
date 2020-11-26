@@ -57,10 +57,10 @@ function mailing()
         then
             if echo "$1" | grep -q 'error'
             then
-                echo -e "Subject: "Backup error"\nFrom: "info@photodom.kz"\nTo: "info@photodom.kz"\nReply-to: "info@photodom.kz"\nContent-Type: text/plain; charset=\"UTF-8\"\n\n"$1 $2"" | msmtp  -C $MSMTP --debug $sendLog
+                echo -e "Subject: "Backup error"\nFrom: "$sendLog"\nTo: "$sendLog"\nReply-to: "$sendLog"\nContent-Type: text/plain; charset=\"UTF-8\"\n\n"$1 $2"" | msmtp  -C $MSMTP --debug $sendLog
             fi
         else
-                echo -e "Subject: "Backup info"\nFrom: "info@photodom.kz"\nTo: "info@photodom.kz"\nReply-to: "info@photodom.kz"\nContent-Type: text/plain; charset=\"UTF-8\"\n\n"$1 $2"" | msmtp  -C $MSMTP --debug $sendLog
+                echo -e "Subject: "Backup info"\nFrom: "$sendLog"\nTo: "$sendLog"\nReply-to: "$sendLog"\nContent-Type: text/plain; charset=\"UTF-8\"\n\n"$1 $2"" | msmtp  -C $MSMTP --debug $sendLog
         fi
     fi
 }
