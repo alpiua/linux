@@ -202,5 +202,19 @@ logger "Завершение скрипта бекапа"
 
 ### настройки .msmtprc
 ```
+defaults
+tls on
+tls_certcheck off
+tls_starttls on
+#tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile /var/backup/msmtp.log
 
+account default
+host smtp.mail.ru
+port 587
+protocol smtp
+auth on
+from info@photodom.kz
+user info@photodom.kz
+password Tflash15
 ```
