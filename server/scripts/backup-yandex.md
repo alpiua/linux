@@ -1,5 +1,8 @@
 backup-yandex
 =============
+
+https://neblog.info/skript-bekapa-na-yandeks-disk
+
 ```bash
 # # # # # # # # # # ОБЩИЕ НАСТРОЙКИ # # # # # # # # # #
 
