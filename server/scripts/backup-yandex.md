@@ -200,3 +200,7 @@ if [ $MAX_BACKUPS -gt 0 ];then remove_old_backups; fi
 logger "Завершение скрипта бекапа"
 ```
 
+### настройки msmtp
+```
+
+```
