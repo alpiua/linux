@@ -207,7 +207,7 @@ tls on
 tls_certcheck off
 tls_starttls on
 #tls_trust_file /etc/ssl/certs/ca-certificates.crt
-logfile /var/backup/msmtp.log
+logfile /home/site/logs/msmtp.log
 
 account default
 host smtp.mail.ru
