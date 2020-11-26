@@ -39,7 +39,7 @@ TOKEN='AQAAAAAxkMylAAV9e_XJrkPBc0cegm1h4GK_buw'
 LOGFILE='backup.log'
         
 # E-mail для отправки результата выполнения скрипта. Оставьте пустым, если отправлять результаты не требуется.
-sendLog='info@photodom.kz'
+sendLog='info@site.com'
                 
 # Отправлять только ошибки (true). Укажите false, если нужно отправлять логи при любом результате выполнения скрипта.
 sendLogErrorsOnly='true'
