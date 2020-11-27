@@ -18,7 +18,6 @@ $ pip3 install certbot-nginx
 **usage**
 ```
 $ certbot --nginx certonly
-$ certbot --nginx certonly
 ```
 ## old method
 
