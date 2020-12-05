@@ -1,6 +1,10 @@
 config
 ======
 
+Mouse
+https://vim.fandom.com/wiki/Using_the_mouse_for_Vim_in_an_xterm
+
+
 :color <name>             выбор цветовой схемы. цветвые схемы:
                             /usr/local/share/vim/vim72/colors/*.vim
 
