@@ -12,13 +12,15 @@ snippets
     
 **delete tables**
 
+mysqldump -u[USERNAME] -p[PASSWORD] --add-drop-table --no-data [DATABASE] | grep ^DROP | mysql -u[USERNAME] -p[PASSWORD] [DATABASE]
+
 **export database**
 
-    $ mysqldump -u USER -p DATABASE > db_name.sql
+    mysqldump -u USER -p DATABASE > db_name.sql
 
 **export all databases**
 
-    $ mysqldump --add-drop-table --single-transaction -uroot -p -A > alldb.sql   # not blocking innodb
+    mysqldump --add-drop-table --single-transaction -uroot -p -A > alldb.sql   # not blocking innodb
     
 **export and archieve**
 
