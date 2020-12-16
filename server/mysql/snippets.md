@@ -9,6 +9,8 @@ snippets
 **import from archive**
 
     gunzip < db_name.sql.gz | mysql -u USER -pPASSWORD DATABASE
+    
+**delete tables**
 
 **export database**
 
