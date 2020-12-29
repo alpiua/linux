@@ -32,7 +32,7 @@ dnf install nginx
 dnf install -y pcre pcre-devel zlib zlib-devel openssl openssl-devel
 dnf install -y tar zip git socat && sudo dnf groupinstall "Development Tools"
 
-cd /opt/ && wget https://nginx.org/download/nginx-1.19.1.tar.gz && tar zxvf nginx-1.19.1.tar.gz
+cd /opt/ && wget https://nginx.org/download/nginx-1.19.6.tar.gz && tar zxvf nginx-1.19.6.tar.gz
 
 git clone https://github.com/google/ngx_brotli.git
 cd ngx_brotli && git submodule update --init && cd ../nginx
