@@ -2,8 +2,7 @@ ssh-keys-git
 ============
 
 
-
-Create a repo. Make sure there is at least one file in it (even just the README) Generate ssh key:
+#### Create a repo. Make sure there is at least one file in it (even just the README) Generate ssh key:
 
 ssh-keygen -t rsa -C "your_email@example.com"
 
