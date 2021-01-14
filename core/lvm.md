@@ -37,3 +37,4 @@ lvm
 
 update /etc/fstab
 
+`mount -a`
