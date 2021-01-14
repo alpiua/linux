@@ -12,3 +12,7 @@ lvm
 
 ### logical volume
 `lvcreate -n vol_projects -L 10G vg00`
+`lvcreate -n vol_backups -l 100%FREE vg00`
+`lvs`
+`lvdisplay`
+`lvdisplay vg00/vol_projects`
