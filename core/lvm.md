@@ -13,6 +13,8 @@ lvm
 
 `vgdisplay vg00`
 
+`vgextend vg00 /dev/sdd` - extend volume group
+
 ### logical volume
 `lvcreate -n vol_projects -L 10G vg00`
 
