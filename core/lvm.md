@@ -1,6 +1,7 @@
 lvm
 ===
 
-###  физический раздел
+###  physical volume
 `pvcreate /dev/sda /dev/sdb`
-`pvs` - список
+`pvs` - list 
+
