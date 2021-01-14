@@ -24,5 +24,9 @@ lvm
 
 `lvdisplay vg00/vol_projects`
 
+`lvreduce -L -2.5G -r /dev/vg00/vol_projects`
+
+`lvextend -l +100%FREE -r /dev/vg00/vol_backups``
+
 ### file sysyem and mount 
 `mkfs.ext4 /dev/vg00/vol_projects`
