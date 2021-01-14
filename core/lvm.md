@@ -7,4 +7,4 @@ lvm
 `pvdisplay [/dev/sdX]` 
 
 ### volume group
-
+`vgcreate vg00 /dev/sdb /dev/sdc`
