@@ -32,3 +32,8 @@ lvm
 
 ### file sysyem and mount 
 `mkfs.ext4 /dev/vg00/vol_projects`
+
+`mkdir /home/projects`
+
+update /etc/fstab
+
