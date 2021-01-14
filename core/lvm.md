@@ -4,4 +4,7 @@ lvm
 ###  physical volume
 `pvcreate /dev/sda /dev/sdb`
 `pvs` - list 
-`pvdisplay /dev/sdX` - 
+`pvdisplay [/dev/sdX]` 
+
+### volume group
+
