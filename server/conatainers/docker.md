@@ -1,5 +1,5 @@
 docker
 ======
 
-remove con
-docker rm -f $(docker ps -a -q)
+## remove container
+`docker rm -f $(docker ps -a -q)`
