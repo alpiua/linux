@@ -1,8 +1,8 @@
 indeponent
 ==========
 
-- command: /usr/bin/create-database.sh creates=/path/to/databaseb
-
+`- command: /usr/bin/create-database.sh creates=/path/to/databaseb`
+`
 ```yml
 - name: Put docker package on hold
   shell: >
@@ -17,3 +17,5 @@ indeponent
 register: db_migrations_result
 changed_when: "not db_migrations_result.stdout|search('No migrations to execute')"
 ```
+
+https://www.middlewareinventory.com/blog/how-to-copy-files-between-remote-servers-ansible-fetch-sync/
