@@ -13,4 +13,7 @@ indeponent
   changed_when: docker_hold.stdout != 'HOLDED'
   ```
   
-  ``````
+```yml
+register: db_migrations_result
+changed_when: "not db_migrations_result.stdout|search('No migrations to execute')"
+```
