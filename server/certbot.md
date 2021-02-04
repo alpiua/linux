@@ -6,9 +6,9 @@ source: https://certbot.eff.org/lets-encrypt/centosrhel7-nginx.html
 
 **install centos7**
 ```
-$ yum -y install yum-utils
-$ yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
-$ yum install certbot python2-certbot-nginx
+yum -y install yum-utils &&
+yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional &&
+yum install certbot python2-certbot-nginx
 ```
 **install centos8**
 ```
