@@ -12,12 +12,12 @@ yum install certbot python2-certbot-nginx
 ```
 **install centos8**
 ```
-dnf install python3-pip
+dnf install python3-pip &&
 pip3 install certbot-nginx
 ```
 **usage**
 ```
-$ certbot --nginx certonly
+certbot --nginx certonly
 ```
 ## old method
 
