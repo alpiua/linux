@@ -2,7 +2,7 @@
 backup-gmail
 ======
 
-```
+```sh
 #!/bin/sh
 
 ##  Backup to Google Drive. Author: Oleksii Pylypchuk 
