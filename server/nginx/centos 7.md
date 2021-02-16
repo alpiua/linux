@@ -80,8 +80,9 @@ cd /opt/lib/ && wget http://nginx.org/download/$NGINX.tar.gz ; tar xvzf $NGINX.t
 --add-module=/opt/lib/ngx_pagespeed \
 --add-module=/opt/lib/ngx_brotli \
 
-# 
+# если устанавливается modsecurity, добавить строчку
 --add-module=/opt/lib/modsecurity-2.9.1/nginx/modsecurity
+# устарело, использовалось для старых версий openssl
 --with-openssl-opt='enable-tlsext zlib no-ssl2 no-shared -fpic' \
 ```
 если падает - -fPIC в with-cc-opt
