@@ -3,7 +3,7 @@ centos 7
 
 ## Install NGINX
 
-Сборка Nginx с OpenSSL 1.1.1j(ALPN) - для работы http/2 + fastopen
+Сборка Nginx с OpenSSL 1.1.1(ALPN) - для работы http/2 + fastopen
 ТОЧНЫЕ ВЕРСИИ ПАКЕТОВ СМОТРЕТЬ НА МОМЕНТ УСТАНОВКИ
 
 ### tools
