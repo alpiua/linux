@@ -56,7 +56,7 @@ mysqldump -u "$mysqluser" -p"$mysqlpass" "$mysqldb" > "$workdir"/"$site"/"$site"
 
 echo $(date "$DATE_FORMAT") "| Archiving files and database"
 
-zip -rq -x="$sitedir"/cache/smarty/\* -x="$sitedir"/img/p/\* -x="$sitedir"/upload/\* -x="$sitedir"/modules/expresscache/cache/\* "$workdir"/"$site"/"$site".zip "$sitedir"/ "$sitedir"/"$site".sql
+zip -rq -x="$sitedir"/cache/smarty/\* -x="$sitedir"/img/p/\* -x="$sitedir"/upload/\* -x="$sitedir"/modules/expresscache/cache/\* "$workdir"/"$site"/"$site".zip "$workdir"/ "$site"/"$site".sql
 
     returncode=$?
 
