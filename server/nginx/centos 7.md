@@ -90,7 +90,7 @@ yum -y install yum-plugin-versionlock
 yum versionlock nginx
 
 ### SERVICE ###
-
+```
 echo '
 [Unit]
 Description=The nginx HTTP and reverse proxy server
