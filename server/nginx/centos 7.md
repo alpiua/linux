@@ -13,17 +13,17 @@ yum -y install openssl-devel libxml2-devel libxslt-devel gd-devel perl-ExtUtils-
 ```
 
 ### vars
-OPENSSL="openssl-1.0.2u" && NGINX="nginx-1.17.6" 
+OPENSSL="openssl-1.0.2u" && NGINX="nginx-1.18.0" 
 && MODSEC="modsecurity-2.9.1"
 
-** openssl unpack 
+### openssl unpack 
 mkdir -p /opt/lib && wget https://www.openssl.org/source/$OPENSSL.tar.gz -O /opt/lib/$OPENSSL.tar.gz && tar -zxvf /opt/lib/$OPENSSL.tar.gz -C /opt/lib
 
-** pagespeed unpack
+### pagespeed unpack
 bash <(curl -f -L -sS https://ngxpagespeed.com/install) &&
 mv /root/incubator-pagespeed-ngx-latest-stable/ /opt/lib/ngx_pagespeed
 
-** brotli dynamic
+### brotli dynamic
 cd /opt/lib && git clone https://github.com/google/ngx_brotli.git && cd ngx_brotli && git submodule update --init
 cd /opt/lib && git clone https://github.com/bagder/libbrotli.git && cd libbrotli
 ./autogen.sh
