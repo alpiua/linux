@@ -13,7 +13,7 @@ yum -y install openssl-devel libxml2-devel libxslt-devel gd-devel perl-ExtUtils-
 ```
 
 ### vars
-OPENSSL="openssl-1.0.2t" && NGINX="nginx-1.17.6" 
+OPENSSL="openssl-1.0.2u" && NGINX="nginx-1.17.6" 
 && MODSEC="modsecurity-2.9.1"
 
 ** openssl unpack 
