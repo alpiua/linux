@@ -64,6 +64,6 @@ file 64GiB
 
 default: 
 lrzip diskD_img.iso Compression Ratio: 1.016. Average Compression Speed: 12.865 MB/s.
-\Total time: 01:24:12.59
+Total time: 01:24:12.59
 
 -l (lzo)
