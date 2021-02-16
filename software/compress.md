@@ -60,8 +60,5 @@ echo "30 1 * * * root /bin/sh find $SITEURI/img/p/ -type f -mtime 1 -name "*home
 
 # lrzip
 default: 
-lrzip diskD_img.iso -O /tmp/2 
-
-diskD_img.iso - Compression Ratio: 1.016. Average Compression Speed: 12.865│diskC_img.iso  diskD_img.iso  diskE_img.iso                               
-MB/s.                                                                      │root@proxmox:/media/roma/old_hdd# rm -f /tmp/2/diskD_img.iso.lrz          
-Total time: 01:24:12.59      
+lrzip diskD_img.iso Compression Ratio: 1.016. Average Compression Speed: 12.865 MB/s.
+\Total time: 01:24:12.59      
