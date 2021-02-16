@@ -115,11 +115,8 @@ PrivateTmp=true
 [Install]
 WantedBy=multi-user.target ' > /usr/lib/systemd/system/nginx.service
 ```
-#####################3
-
 
 useradd --no-create-home nginx
-
 
 
  service nginx restart
@@ -159,7 +156,7 @@ EOF
 location / { ModSecurityEnabled on; ModSecurityConfig modsecurity.inc; }
 
 
-** удалить софт для сборки
+### удалить софт для сборки
 yum -y groupremove 'Development Tools' &&
 yum -y remove openssl-devel libxml2-devel libxslt-devel gd-devel perl-ExtUtils-Embed GeoIP-devel pcre-devel zlib-devel
 
