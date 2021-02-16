@@ -10,8 +10,9 @@ centos 7
 
 ```yum -y groupinstall 'Development Tools' &&
 yum -y install openssl-devel libxml2-devel libxslt-devel gd-devel perl-ExtUtils-Embed GeoIP-devel pcre-devel zlib-devel
+```
 
-** vars
+### vars
 OPENSSL="openssl-1.0.2t" && NGINX="nginx-1.17.6" 
 && MODSEC="modsecurity-2.9.1"
 
