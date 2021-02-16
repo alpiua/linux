@@ -39,12 +39,12 @@ gunzip -c $MODSEC.tar.gz | tar xvf - && rm -rf $MODSEC.tar.gz && cd $MODSEC
 make
 ```
 
-при ошибке компиляции nginx - patch https://github.com/SpiderLabs/ModSecurity/issues/1418)
+при ошибке компиляции nginx - patch https://github.com/SpiderLabs/ModSecurity/issues/1418
 
 ### nginx unpack
 cd /opt/lib/ && wget http://nginx.org/download/$NGINX.tar.gz ; tar xvzf $NGINX.tar.gz ; rm -rf $NGINX.tar.gz ; cd $NGINX
 
-** копируем строку с настройкой (nginx -V) и добавляем загрузку модулей:
+``````
 ./configure \
 --prefix=/etc/nginx \
 --sbin-path=/usr/sbin/nginx \
