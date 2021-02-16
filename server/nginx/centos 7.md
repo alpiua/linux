@@ -116,10 +116,11 @@ PrivateTmp=true
 WantedBy=multi-user.target ' > /usr/lib/systemd/system/nginx.service
 ```
 
+### FINAL
 useradd --no-create-home nginx
 
-
  service nginx restart
+
 
 
 Чтобы ХТТП2 сертификат везде-везде работал - нужно ручками добавить домен
