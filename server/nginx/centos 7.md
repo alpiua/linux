@@ -30,16 +30,18 @@ cd /opt/lib && git clone https://github.com/bagder/libbrotli.git && cd libbrotli
 ./configure
 make && make install
 
-** mod security 
+### mod security 
+```
 yum install gcc make automake autoconf libtool pcre pcre-devel libxml2 libxml2-devel curl curl-devel httpd-devel
 cd /opt/lib && wget https://www.modsecurity.org/tarball/2.9.1/$MODSEC.tar.gz && \
 gunzip -c $MODSEC.tar.gz | tar xvf - && rm -rf $MODSEC.tar.gz && cd $MODSEC
 ./configure --enable-standalone-module
 make
+```
 
 при ошибке компиляции nginx - patch https://github.com/SpiderLabs/ModSecurity/issues/1418)
 
-** nginx unpack
+### nginx unpack
 cd /opt/lib/ && wget http://nginx.org/download/$NGINX.tar.gz ; tar xvzf $NGINX.tar.gz ; rm -rf $NGINX.tar.gz ; cd $NGINX
 
 ** копируем строку с настройкой (nginx -V) и добавляем загрузку модулей:
