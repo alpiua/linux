@@ -3,7 +3,7 @@ centos 7
 
 ## Install NGINX
 
-Сборка Nginx с OpenSSL 1.0.2 (ALPN) - для работы http/2 + fastopen
+Сборка Nginx с OpenSSL 1.1.1j(ALPN) - для работы http/2 + fastopen
 ТОЧНЫЕ ВЕРСИИ ПАКЕТОВ СМОТРЕТЬ НА МОМЕНТ УСТАНОВКИ
 
 ### tools
@@ -13,7 +13,7 @@ yum -y install openssl-devel libxml2-devel libxslt-devel gd-devel perl-ExtUtils-
 ```
 
 ### vars
-OPENSSL="openssl-1.0.2u" && NGINX="nginx-1.18.0" 
+OPENSSL="openssl-1.1.1j" && NGINX="nginx-1.18.0" 
 && MODSEC="modsecurity-2.9.1"
 
 ### openssl unpack 
