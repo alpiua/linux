@@ -60,7 +60,7 @@ echo "30 1 * * * root /bin/sh find $SITEURI/img/p/ -type f -mtime 1 -name "*home
 
 # lrzip
 
-file 64GiB (raw disk ima)
+file 64GiB (raw disk image)
 
 default: 
 lrzip diskD_img.iso Compression Ratio: 1.016. Average Compression Speed: 12.865 MB/s.
