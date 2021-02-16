@@ -76,11 +76,13 @@ cd /opt/lib/ && wget http://nginx.org/download/$NGINX.tar.gz ; tar xvzf $NGINX.t
 --with-http_secure_link_module \
 --with-cc-opt='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector-strong --param=ssp-buffer-size=4 -grecord-gcc-switches -m64 -mtune=generic -DTCP_FASTOPEN=23' \
 --with-ld-opt='-Wl,-z,relro -Wl,-E' \
---with-openssl=/opt/lib/$OPENSSLj \
---with-openssl-opt='enable-tlsext zlib no-ssl2 no-shared -fpic' \
+--with-openssl=/opt/lib/$OPENSSL \
 --add-module=/opt/lib/ngx_pagespeed \
 --add-module=/opt/lib/ngx_brotli \
+
+# 
 --add-module=/opt/lib/modsecurity-2.9.1/nginx/modsecurity
+--with-openssl-opt='enable-tlsext zlib no-ssl2 no-shared -fpic' \
 ```
 если падает - -fPIC в with-cc-opt
 
