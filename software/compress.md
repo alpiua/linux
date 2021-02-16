@@ -58,4 +58,5 @@ find /var/www/presta/img/p/ -type f -mtime +1 -name "*home_default.jpg" | wc -l
 echo "30 1 * * * root /bin/sh find $SITEURI/img/p/ -type f -mtime 1 -name "*home_default.jpg" -exec /$USER/guetzli_linux_x86-64 --quality 90 '{}' '{}' ';' 2>&1; " > /etc/cron.d/img_compress
 
 
-# lz
+# lrzip
+default: 
