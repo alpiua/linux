@@ -56,3 +56,6 @@ find /var/www/presta/img/p/ -type f -mtime +1 -name "*home_default.jpg" | wc -l
 
 **добавить в крон для пережатия тех что изменились за день**  
 echo "30 1 * * * root /bin/sh find $SITEURI/img/p/ -type f -mtime 1 -name "*home_default.jpg" -exec /$USER/guetzli_linux_x86-64 --quality 90 '{}' '{}' ';' 2>&1; " > /etc/cron.d/img_compress
+
+
+# lz
