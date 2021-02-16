@@ -44,7 +44,7 @@ make
 ### nginx unpack
 cd /opt/lib/ && wget http://nginx.org/download/$NGINX.tar.gz ; tar xvzf $NGINX.tar.gz ; rm -rf $NGINX.tar.gz ; cd $NGINX
 
-``````
+```
 ./configure \
 --prefix=/etc/nginx \
 --sbin-path=/usr/sbin/nginx \
@@ -81,7 +81,7 @@ cd /opt/lib/ && wget http://nginx.org/download/$NGINX.tar.gz ; tar xvzf $NGINX.t
 --add-module=/opt/lib/ngx_pagespeed \
 --add-module=/opt/lib/ngx_brotli \
 --add-module=/opt/lib/modsecurity-2.9.1/nginx/modsecurity
-
+```
 если падает - -fPIC в with-cc-opt
 
 make -j4 && make install
@@ -98,6 +98,7 @@ After=network.target remote-fs.target nss-lookup.target
 [Service]
 Type=forking
 PIDFile=/run/nginx.pid
+``````
 # Nginx will fail to start if /run/nginx.pid already exists but has the wrong
 # SELinux context. This might happen when running `nginx -t` from the cmdline.
 # https://bugzilla.redhat.com/show_bug.cgi?id=1268621
