@@ -1,14 +1,14 @@
 centos 7
 =======
 
-Install NGINX
+## Install NGINX
 
 Сборка Nginx с OpenSSL 1.0.2 (ALPN) - для работы http/2 + fastopen
 ТОЧНЫЕ ВЕРСИИ ПАКЕТОВ СМОТРЕТЬ НА МОМЕНТ УСТАНОВКИ
 
-** tools
+### tools
 
-yum -y groupinstall 'Development Tools' &&
+```yum -y groupinstall 'Development Tools' &&
 yum -y install openssl-devel libxml2-devel libxslt-devel gd-devel perl-ExtUtils-Embed GeoIP-devel pcre-devel zlib-devel
 
 ** vars
