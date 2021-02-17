@@ -31,93 +31,85 @@ mysqlpass=MYSQLPASS
 backuplog=/home/${USER}/logs/${site}.backup.log
 email=alert@email.com
 
-echo $(date "$DATE_FORMAT") "| Starting..."
-echo $(date "$DATE_FORMAT") "| Backuping database"
+backuplog=/home/${USER}/logs/backup_${site}.log
+email=swirl7@gmail.com
 
+files="$workdir"/"$site"/"$site"_files.zip
+images="$workdir"/"$site"/"$site"_images.zip
+database="$workdir"/"$site"/"$site"_database.zip
+
+FREE_SPACE=$(df -k --output=avail "$PWD" | tail -n1)
+SITE_SIZE=$(du -s $sitedir | cut -f 1)
+
+### FUNCTIONS
+function log() {
+echo "$(date '+[%d-%m-%Y] %H:%M:%S') | $1" >> $backuplog
+}
+
+function upload() {
+log "Uploading $1"
+"$workdir"/drive push -ignore-conflict -ignore-name-clashes -quiet $1 > /dev/null
+returncode=$?
+if [ $returncode -ne 0 ]
+  then
+    log "-- Error occured. Upload unsuccessful. Return code is "$returncode""
+    echo "Error occured while uploading "$1" to google" | mail -s "Error while uploading "$site" backup" -a "$backuplog" "$email"
+  else
+    log "|_task complete"
+  fi
+}
+
+function checkjob() {
+returncode=$?
+if [ $returncode -ne 0 ]
+  then
+    log "-- Failed to create a "$2" backup. Return code is "$returncode""
+    echo "Error backuping "$site" "$2". Program returned code $returncode" | mail -s "Error backuping "$site" "$2"" -a "$backuplog" "$email"
+    rm -rf "$3"
+  else
+    log "|_ New $2 backup created. Old backup deleted if any" && rm -rf "$3".old
+fi
+}
+
+function movebackup() {
+[ -f "$1" ] && log "Moving old "$2" backup" && mv "$1" "$1".old
+}
+
+### SCRIPT STARTS
 [ -f ${backuplog} ] || touch ${backuplog}
 [ -d ${workdir}/${site} ] || mkdir ${workdir}/${site}
 
+[ ${FREE_SPACE} -lt ${SITE_SIZE} ] && rm -rf "$workdir"/"$site/*" && log "Not enough free space. Trying to delete old backups"
+
+[[ $(find "$workdir"/"$site" -type f -mtime -1 | grep "." ) ]] || echo "Backup created more than 24h ago" | mail -s "BACKUP "$site" OUTDATED" "$email"
+
+log "Starting..."
+
+movebackup "$images" "images"
+movebackup "$files" "files"
+movebackup "$database" "database"
+
+log "Backuping database"
 mysqldump -u "$mysqluser" -p"$mysqlpass" "$mysqldb" > "$workdir"/"$site"/"$site".sql
 
-    returncode=$?
+cd "$workdir"/"$site" ; zip -rq "$database" "$site".sql
+checkjob "$?" "database" "$database" && rm -rf "$site".sql
 
-    if [ $returncode -ne 0 ]
-    then
-        echo $(date "$DATE_FORMAT") "| Failed to create a database backup. Return code is "$returncode""
-        echo "Error backuping "$site" database. mysqldump returned code $returncode" | mail -s "Error backuping DB "$site"" -a "$backuplog" "$email"
-    else
-        echo $(date "$DATE_FORMAT") "| Database backup created" 
-    fi
+log "Archiving files"
+cd "$sitedir" ; zip -x=cache/smarty/\* -x=img/p/\* -x=upload/\* -x=var/cache/\* -rq "$files" .
+checkjob "$?" "files" "$files"
 
-[ -f ""$workdir"/"$site"/"$site".zip" ] && [ -f ""$workdir"/"$site"/"$site"-img.zip" ] &&
-    echo $(date "$DATE_FORMAT") "| Moving the old backup" &&
-    mv "$workdir"/"$site"/"$site".zip "$workdir"/"$site"/"$site".zip.old &&
-    mv "$workdir"/"$site"/"$site"-img.zip "$workdir"/"$site"/"$site"-img.zip.old
+log "Archiving images"
+cd "$sitedir" ; zip -rq "$images" img/p/
+checkjob "$?" "images" "$images"
 
-echo $(date "$DATE_FORMAT") "| Archiving files and database"
+log "Starting upload to the google disk"
+[ -f "$files" ] && upload "$files" || log "No files to upload, cancelling"
+[ -f "$images" ] && upload "$images" || log "No images to upload, cancelling"
+[ -f "$database" ] && upload "$database" || log "No database to upload, cancelling"
 
-zip -rq -x="$sitedir"/cache/smarty/\* -x="$sitedir"/img/p/\* -x="$sitedir"/upload/\* -x="$sitedir"/modules/expresscache/cache/\* "$workdir"/"$site"/"$site".zip "$workdir"/ "$site"/"$site".sql
+echo "=================================================================" >> $backuplog
 
-    returncode=$?
-
-    if [ $returncode -ne 0 ]
-    then
-        echo $(date "$DATE_FORMAT") "| Error creating zip file. "$workdir"/"$site"/"$site".zip.old will stay. Return code is "$returncode""       
-        echo "Error when creating "$site" archieve. ZIP returned code $returncode" | mail -s "Error creating backup "$site"" -a "$backuplog" "$email"
-        rm -rf "$workdir"/"$site"/"$site".zip
-    else
-        rm -rf "$workdir"/"$site"/"$site".sql
-        rm -rf "$workdir"/"$site"/"$site".zip.old
-        echo $(date "$DATE_FORMAT") "| Archive created. Old archive deleted"
-    fi
-
-echo $(date "$DATE_FORMAT") "| Archiving images"
-
-zip -rq $workdir/$site/$site-img.zip $sitedir/img/p/
-
-   returncode=$?
-
-    if [ $returncode -ne 0 ]
-    then
-        echo $(date "$DATE_FORMAT") "| Error creating images archive. Return code "$returncode"" 
-        echo "Error when creating "$site" archieve. ZIP returned code $returncode" | mail -s "Error creating backup "$site"" -a "$backuplog" "$email"
-        rm -rf "$workdir"/"$site"/"$site".zip
-    else
-        rm -rf "$workdir"/"$site"/"$site".sql
-        rm -rf "$workdir"/"$site"/"$site".zip.old
-        echo $(date "$DATE_FORMAT") "| Archive created. Old archive deleted"
-    fi
-
-echo $(date "$DATE_FORMAT") "| Archiving images"
-
-zip -rq $workdir/$site/$site-img.zip $sitedir/img/p/
-
-   returncode=$?
-
-    if [ $returncode -ne 0 ]
-    then
-        echo $(date "$DATE_FORMAT") "| Error creating images archive. Return code "$returncode"" 
-        echo "Error when creating "$site" archieve. ZIP returned code $returncode" | mail -s "Error creating backup "$site"" -a "$backuplog" "$email"
-        rm -rf "$workdir"/"$site"/"$site"-img.zip
-    else
-        rm -rf "$workdir"/"$site"/"$site"-img.zip.old &&
-        echo $(date "$DATE_FORMAT") "| Images archive created. Old archive deleted"
-    fi
-
-echo $(date "$DATE_FORMAT") "| Starting upload to the google disk"
-
-[ -f ""$workdir"/"$site"/"$site".zip" ] && [ -f ""$workdir"/"$site"/"$site"-img.zip" ] &&                                                                     "$workdir"/drive push -ignore-conflict -ignore-name-clashes -quiet "$workdir"/"$site"/"$site".zip "$workdir"/"$site"/"$site"-img.zip > /dev/null || echo $(date "$DATE_FORMAT") "| No files to upload, cancelling" 
-
-    returncode=$?
-
-    if [ $returncode -ne 0 ]
-    then
-        echo $(date "$DATE_FORMAT") "| Error occured. Upload NOT complete. Return code is "$returncode""
-        echo "Error occured while uploading archive to google" | mail -s "Error while uploading "$site" backup" -a "$backuplog" "$email"
-    else
-        echo $(date "$DATE_FORMAT") "| Task complete"
-    fi
-
-# IN CASE WE ARE UNDER ROOT
+### IN CASE WE ARE UNDER ROOT
 chown -R ${USER}:${USER} ${workdir}
 ```
