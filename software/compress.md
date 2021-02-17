@@ -73,3 +73,6 @@ Total time: 00:17:25.29
 la 2.1
 
 -z (zpaq) - slowest
+ Compression Ratio: 1.043. Average Compression Speed:  2.986MB/s.                                           
+Total time: 06:02:50.67
+la 8
